@@ -2,6 +2,7 @@ package org.example.web;
 
 import lombok.RequiredArgsConstructor;
 import org.example.service.posts.PostsService;
+import org.example.web.dto.PostResponseDto;
 import org.example.web.dto.PostsSaveRequestDto;
 import org.example.web.dto.PostsUpdateRequestDto;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,6 +25,10 @@ public class PostsApiController {
   @PutMapping
   public Long update(@PathVariable Long id, @RequestBody PostsUpdateRequestDto requestDto){
     return postsService.update(id,requestDto);
+  }
+
+  public PostResponseDto findById(@PathVariable Long id){
+    return postsService.findById(id);
   }
 
 }
