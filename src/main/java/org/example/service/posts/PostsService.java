@@ -20,6 +20,7 @@ public class PostsService {
     return postRepository.save(requestDto.toEntity()).getId();
   }
 
+  @Transactional
   public Long update(Long id, PostsUpdateRequestDto requestDto){
     Posts posts = postRepository.findById(id).orElseThrow(
         ()-> new IllegalArgumentException("해당 게시글이 없습니다. id=" + id));
