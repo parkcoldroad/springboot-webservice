@@ -5,6 +5,7 @@ import org.example.service.posts.PostsService;
 import org.example.web.dto.PostResponseDto;
 import org.example.web.dto.PostsSaveRequestDto;
 import org.example.web.dto.PostsUpdateRequestDto;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -22,11 +23,12 @@ public class PostsApiController {
     return postsService.save(requestDto);
   }
 
-  @PutMapping
+  @PutMapping("/api/v1/posts/{id}")
   public Long update(@PathVariable Long id, @RequestBody PostsUpdateRequestDto requestDto){
     return postsService.update(id,requestDto);
   }
 
+  @GetMapping("/api/v1/posts/{id}")
   public PostResponseDto findById(@PathVariable Long id){
     return postsService.findById(id);
   }
