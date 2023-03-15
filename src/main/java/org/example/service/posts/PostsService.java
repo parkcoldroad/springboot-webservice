@@ -1,6 +1,7 @@
 package org.example.service.posts;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import javax.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -45,5 +46,12 @@ public class PostsService {
     return postRepository.findAllDesc().stream()
         .map(posts -> new PostsListResponseDto(posts))
         .collect(Collectors.toList());
+  }
+
+  @Transactional
+  public void delete(Long id){
+    Posts post = postRepository.findById(id).orElseThrow(
+        () -> new IllegalArgumentException("해당 게시글이 없습니다. id= " + id));
+    postRepository.delete(post);
   }
 }
