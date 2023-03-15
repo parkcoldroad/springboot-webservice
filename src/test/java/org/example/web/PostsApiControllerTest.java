@@ -18,6 +18,7 @@ import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -74,7 +75,6 @@ public class PostsApiControllerTest {
 
     String url = "http://localhost:" + port + "/api/v1/posts/" + updateId;
     HttpEntity<PostsUpdateRequestDto> requestEntity = new HttpEntity<>(requestDto);
-
     ResponseEntity<Long> responseEntity = restTemplate.exchange(url, HttpMethod.PUT,requestEntity,
         Long.class);
 
