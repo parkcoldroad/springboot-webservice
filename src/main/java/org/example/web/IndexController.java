@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 @RequiredArgsConstructor
 @Controller
-public class IndexController {
+public class IndexController {//connect mustache template
 
   private final PostsService postsService;
 
