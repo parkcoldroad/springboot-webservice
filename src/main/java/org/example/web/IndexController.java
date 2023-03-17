@@ -1,6 +1,8 @@
 package org.example.web;
 
+import javax.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
+import org.example.config.auth.dto.SessionUser;
 import org.example.service.posts.PostsService;
 import org.example.web.dto.PostResponseDto;
 import org.springframework.stereotype.Controller;
@@ -12,11 +14,16 @@ import org.springframework.web.bind.annotation.PathVariable;
 @Controller
 public class IndexController {//connect mustache template
 
+  private final HttpSession httpSession;
   private final PostsService postsService;
 
   @GetMapping("/")
   public String index(Model model) {
     model.addAttribute("posts", postsService.findAllDesc());
+    SessionUser user = (SessionUser) httpSession.getAttribute("user");
+    if (user != null){
+      model.addAttribute("userName",user.getName());
+    }
     return "index";
   }
 
