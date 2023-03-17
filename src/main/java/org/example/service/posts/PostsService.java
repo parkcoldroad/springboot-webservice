@@ -1,7 +1,6 @@
 package org.example.service.posts;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 import javax.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
