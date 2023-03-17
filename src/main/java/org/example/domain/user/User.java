@@ -1,6 +1,7 @@
 package org.example.domain.user;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
@@ -8,9 +9,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import org.example.domain.BaseTimeEntity;
 
 @Getter
-public class User {
+@NoArgsConstructor
+@Entity
+public class User extends BaseTimeEntity {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
