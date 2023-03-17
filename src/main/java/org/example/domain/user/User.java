@@ -7,7 +7,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import lombok.Builder;
+import lombok.Getter;
 
+@Getter
 public class User {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,7 +32,7 @@ public class User {
     this.role = role;
   }
 
-  public User Update(String name,String picture){
+  public User update(String name,String picture){
     this.name = name;
     this.picture = picture;
     return this;
