@@ -7,11 +7,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import lombok.Builder;
-import net.bytebuddy.dynamic.loading.InjectionClassLoader.Strategy;
 
 public class User {
   @Id
-  @GeneratedValue(Strategy = GenerationType.IDENTITY)
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
   @Column(nullable = false)
   private String name;
