@@ -19,7 +19,7 @@ protected void configure(HttpSecurity http) throws Exception {
       .authorizeRequests()
       .antMatchers("/","/css/**","/images/**",
           "/js/**","/h2-console/**").permitAll()
-      .antMatchers("/api/v1/**").hasRole(Role.USER.name())
+      .antMatchers("/api/v1/**").hasRole(Role.GUEST.name())
       .anyRequest().authenticated()
       .and()
       .logout()
